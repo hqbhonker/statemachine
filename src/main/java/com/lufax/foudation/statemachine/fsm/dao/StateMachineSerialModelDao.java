@@ -24,7 +24,7 @@ public class StateMachineSerialModelDao {
 
     public void save(StateMachineModel model){
         try {
-            sqlMapClient.insert("", model);
+            sqlMapClient.insert("StateMachineSerial.insertStateMachineSerialModel", model);
         } catch (SQLException e) {
 
         }
@@ -33,7 +33,7 @@ public class StateMachineSerialModelDao {
 
     public void update(StateMachineModel model){
         try {
-            sqlMapClient.update("", model);
+            sqlMapClient.update("StateMachineSerial.updateStateMachineSerialModel", model);
         } catch (SQLException e) {
 
         }

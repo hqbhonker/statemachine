@@ -33,7 +33,7 @@ public class StateMachineModelDao {
         map.put("bizRefNo",bizRefNo);
 
         try {
-            return   (StateMachineModel)sqlMapClient.queryForObject("", map);
+            return   (StateMachineModel)sqlMapClient.queryForObject("stateMachine.selectMachineModel", map);
         } catch (SQLException e) {
 
         }
@@ -42,7 +42,7 @@ public class StateMachineModelDao {
     }
     public void save(StateMachineModel model){
         try {
-            sqlMapClient.insert("", model);
+            sqlMapClient.insert("stateMachine.insertMachineModel", model);
         } catch (SQLException e) {
 
         }
@@ -51,7 +51,7 @@ public class StateMachineModelDao {
 
     public void update(StateMachineModel model){
         try {
-            sqlMapClient.update("", model);
+            sqlMapClient.update("stateMachine.updateMachineModel", model);
         } catch (SQLException e) {
 
         }

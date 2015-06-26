@@ -18,7 +18,7 @@
          IS_DONE isDone,
          VERSION version,
          ATTEMPCOUNT attempCount
-        from t_sm_model
+        from STATEMACHINE_MODEL
         where 1=1
 
         <isNotEmpty prepend="and" property="ID">
@@ -40,7 +40,7 @@
 
     <insert id="insertMachineModel" parameterClass="com.lufax.foudation.statemachine.fsm.model.StateMachineModel">
 
-        insert into t_sm_model(
+        insert into STATEMACHINE_MODEL(
         ID,
         BIZ_REF_NO,
         BIZ_TYPE,
@@ -71,12 +71,12 @@
 
 
     <update id="updateMachineModel" parameterClass="java.util.Map">
-        update t_sm_model set
+        update STATEMACHINE_MODEL set
 
 
 
         <isNotEmpty prepend="and" property="isDone">
-            isDone = #isDone#,
+            isDone = #isDone#
         </isNotEmpty>
         <isNotEmpty prepend="and" property="currentState">
             CURRENT_STATE = #currentState#

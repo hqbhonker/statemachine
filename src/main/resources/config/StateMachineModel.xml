@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap
+        PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN"
+        "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="stateMachine">
+
+    <select id="selectMachineModel" parameterClass="map" resultClass="com.lufax.cashier.dto.BankCodeDTO">
+        select
+        BANKCODE bankCode,
+        NAME bankCodeName,
+        CREATED_BY createdBy,
+        CREATED_DATE createdAt,
+        UPDATED_BY updatedBy,
+        UPDATED_DATE updatedAt
+        from tbankcode
+        where BANKCODE = #code#
+    </select>
+
+</sqlMap>

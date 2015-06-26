@@ -23,7 +23,7 @@ public class DefaultStateMachineTracer  implements StateMachineTracer{
     public Object enterProcess(StateMachineContext context) {
         StateMachineSerialModel model=new StateMachineSerialModel();
         model.setSourceState(context.getStateMachineModel().getCurrentState());
-        model.setStateMachineId(context.getStateMachineModel().getId());
+        model.setStateMachineModelId(context.getStateMachineModel().getId());
         model.setCreatedBy("admin");
         model.setCreatedDate(new Date());
         model.setModifiedBy("admin");

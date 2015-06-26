@@ -2,15 +2,16 @@ package com.lufax.foudation.statemachine.fsm.model;
 
 import org.apache.commons.lang3.builder.ToStringBuilder;
 
+import java.io.Serializable;
 import java.util.Date;
 import java.util.UUID;
 
 /**
  * Created by Administrator on 2015/6/22.
  */
-public class StateMachineSerialModel  {
+public class StateMachineSerialModel  implements Serializable {
     private String id;
-    private String  stateMachineId;
+    private String stateMachineModelId;
     private String sourceState;
     private String descState;
     private String createdBy;
@@ -24,12 +25,12 @@ public class StateMachineSerialModel  {
         return id;
     }
 
-    public String getStateMachineId() {
-        return stateMachineId;
+    public String getStateMachineModelId() {
+        return stateMachineModelId;
     }
 
-    public void setStateMachineId(String stateMachineId) {
-        this.stateMachineId = stateMachineId;
+    public void setStateMachineModelId(String stateMachineModelId) {
+        this.stateMachineModelId = stateMachineModelId;
     }
 
     public String getSourceState() {

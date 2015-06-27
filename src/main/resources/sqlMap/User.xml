@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>  
+<!DOCTYPE sqlMap  
+PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN"  
+"http://www.ibatis.com/dtd/sql-map-2.dtd">   
+<sqlMap>  
+    <typeAlias alias="user" type="po.Person" />  
+      
+    <insert id="insertUser" parameterClass="com.lufax.foudation.statemachine.fsm.model.User">  
+       <![CDATA[ 
+           insert into user values (#userId#,#name#,#sex#) 
+       ]]>  
+    </insert>  
+      
+    <delete id="deleteById" parameterClass="int">  
+        <![CDATA[ 
+           delete from user where user_id=#userId# 
+        ]]>  
+    </delete>  
+      
+    <select id="queryById" parameterClass="int" resultClass="com.lufax.foudation.statemachine.fsm.model.User">  
+         <![CDATA[ 
+              select * from user where user_id=#userId# 
+         ]]>  
+    </select>  
+      
+    <select id="queryAllUser" resultClass="com.lufax.foudation.statemachine.fsm.model.User">  
+         <![CDATA[ 
+               select * from user 
+         ]]>  
+    </select>  
+</sqlMap>  

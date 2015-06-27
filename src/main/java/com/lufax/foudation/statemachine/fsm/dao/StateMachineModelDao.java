@@ -20,7 +20,7 @@ import java.util.Map;
 /**
  * Created by wuchenlv565 on 6/25/15.
  */
-@Repository
+//@Repository
 public class StateMachineModelDao {
     @Autowired
     protected SqlMapClient sqlMapClient;

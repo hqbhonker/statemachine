@@ -1,7 +1,7 @@
 package com.lufax.foudation.statemachine.fsm.model;
 
 import java.io.Serializable;
-
+ 
 public class User implements Serializable {
 	
 	private static final long serialVersionUID = -7407939090098266499L;

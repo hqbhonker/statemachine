@@ -1,5 +1,0 @@
-Manifest-Version: 1.0
-Build-Jdk: 1.6.0_34
-Built-By: wuchenlv565
-Created-By: IntelliJ IDEA
-

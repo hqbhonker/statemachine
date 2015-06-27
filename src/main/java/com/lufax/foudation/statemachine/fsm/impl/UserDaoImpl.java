@@ -21,7 +21,7 @@ public class UserDaoImpl extends SqlMapClientDaoSupport implements UserDao{
 		 getSqlMapClientTemplate().delete("deleteById", id);  
 		
 	}
-
+ 
 	@Override
 	public User queryById(int id) {
 		// TODO Auto-generated method stub

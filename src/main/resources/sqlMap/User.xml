@@ -10,7 +10,7 @@ PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN"
            insert into user values (#userId#,#name#,#sex#) 
        ]]>  
     </insert>  
-      
+       
     <delete id="deleteById" parameterClass="int">  
         <![CDATA[ 
            delete from user where user_id=#userId# 

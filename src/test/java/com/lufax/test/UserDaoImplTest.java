@@ -30,7 +30,7 @@ public class UserDaoImplTest {
         s.deleteById(1);  
     }  */
       
-    //查询全部  
+    //查询全部   
     @Test  
     public void testQueryAllUser(){  
     	UserDaoImpl s = (UserDaoImpl)applicationContext.getBean("userDao");  

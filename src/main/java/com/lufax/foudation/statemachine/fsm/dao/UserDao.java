@@ -5,7 +5,7 @@ import java.util.List;
 import com.lufax.foudation.statemachine.fsm.model.User;
 
 public interface UserDao {
-	
+	 
 	//Ìí¼Ó  
     public void insertUser(User user);
     

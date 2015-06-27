@@ -39,7 +39,7 @@ public class StateMachineModelDao {
         }
         return null;
 
-    }
+    } 
     public void save(StateMachineModel model){
         try {
             sqlMapClient.insert("stateMachine.insertMachineModel", model);

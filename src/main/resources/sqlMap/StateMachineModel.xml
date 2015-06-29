@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>  
+<!DOCTYPE sqlMap  
+PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN"  
+"http://www.ibatis.com/dtd/sql-map-2.dtd">   
+<sqlMap namespace="StateMachineModel">
+
+    <insert id="insert" parameterClass="com.lufax.foudation.statemachine.fsm.model.StateMachineModel">
+        insert into t_sm_model(
+        ID,
+        BIZ_REF_NO,
+        BIZ_TYPE,
+        CURRENT_STATE,
+        CREATED_BY,
+        MODIFIED_BY,
+        CREATED_DATE,
+        MODIFIED_DATE,
+        IS_DONE,
+        VERSION,
+        ATTEMP_COUNT
+        ) VALUES (
+        #id#,
+        #bizRefNo#,
+        #bizType#,
+        #currentState#,
+        #createdBy#,
+        #modifiedBy#,
+        now(),
+        now(),
+        #isDone#,
+        #version#,
+        #attempCount#
+        )
+    </insert>
+
+    <select id="select" parameterClass="java.util.Map" resultClass="com.lufax.foudation.statemachine.fsm.model.StateMachineModel">
+        select
+        ID id ,
+        BIZ_REF_NO     bizRefNo,
+        BIZ_TYPE bizType ,
+        CURRENT_STATE      currentState ,
+        CREATED_BY createdBy,
+        MODIFIED_BY ,
+        CREATED_DATE createdDate,
+        MODIFIED_DATE modifiedDate,
+        IS_DONE isDone,
+        VERSION version,
+        ATTEMP_COUNT attempCount
+        from t_sm_model
+        where 1=1
+        <isNotEmpty prepend="and" property="id">
+            ID = #id#
+        </isNotEmpty>
+        <isNotEmpty prepend="and" property="bizRefNo">
+            BIZ_REF_NO = #bizRefNo#
+        </isNotEmpty>
+        <isNotEmpty prepend="and" property="bizType">
+            BIZ_TYPE = #bizType#
+        </isNotEmpty>
+        <isNotEmpty prepend="and" property="currentState">
+            CURRENT_STATE = #currentState#
+        </isNotEmpty>
+    </select>
+
+    <update id="update" parameterClass="com.lufax.foudation.statemachine.fsm.model.StateMachineModel">
+        update t_sm_model set
+        MODIFIED_DATE =now()
+        <isNotEmpty prepend="," property="isDone">
+            IS_DONE = #isDone#
+        </isNotEmpty>
+        <isNotEmpty prepend="," property="currentState">
+            CURRENT_STATE = #currentState#
+        </isNotEmpty>
+
+        where   ID = #id#
+    </update>
+       
+</sqlMap>

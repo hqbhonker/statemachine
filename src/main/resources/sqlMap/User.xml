@@ -3,8 +3,7 @@
 PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN"  
 "http://www.ibatis.com/dtd/sql-map-2.dtd">   
 <sqlMap>  
-    <typeAlias alias="user" type="po.Person" />  
-      
+
     <insert id="insertUser" parameterClass="com.lufax.foudation.statemachine.fsm.model.User">  
        <![CDATA[ 
            insert into user values (#userId#,#name#,#sex#) 

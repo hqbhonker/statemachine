@@ -10,7 +10,7 @@ public interface StateMachineModelKeeper {
 
     public StateMachineModel getStateMachineModelBy(String bizType,String bizRefNo);
 
-    public void  saveOrUpdateStateMachineModel(StateMachineModel model);
+    public StateMachineModel  saveOrUpdateStateMachineModel(StateMachineModel model);
 
     public void saveOrUpdateStateMachineSerialModel(StateMachineSerialModel model);
 

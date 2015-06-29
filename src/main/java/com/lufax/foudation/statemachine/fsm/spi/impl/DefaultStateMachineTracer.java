@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 import java.util.Date;
+import java.util.UUID;
 
 /**
  * Created by Administrator on 2015/6/22.
@@ -22,12 +23,12 @@ public class DefaultStateMachineTracer  implements StateMachineTracer{
     @Override
     public Object enterProcess(StateMachineContext context) {
         StateMachineSerialModel model=new StateMachineSerialModel();
+        model.setId( UUID.randomUUID().toString());
         model.setSourceState(context.getStateMachineModel().getCurrentState());
         model.setStateMachineModelId(context.getStateMachineModel().getId());
         model.setCreatedBy("admin");
         model.setCreatedDate(new Date());
         model.setModifiedBy("admin");
-        System.out.println(model.toString());
         stateMachineModelKeeper.saveOrUpdateStateMachineSerialModel(model);
         return model;
     }
@@ -37,7 +38,6 @@ public class DefaultStateMachineTracer  implements StateMachineTracer{
         StateMachineSerialModel model=(StateMachineSerialModel)token;
         model.setDescState(context.getStateMachineModel().getCurrentState());
         stateMachineModelKeeper.saveOrUpdateStateMachineSerialModel(model);
-        System.out.println(model.toString());
 
     }
 }

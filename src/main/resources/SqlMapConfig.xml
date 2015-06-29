@@ -2,8 +2,8 @@
 <!DOCTYPE sqlMapConfig  
 PUBLIC "-//iBATIS.com//DTD SQL Map Config 2.0//EN"  
 "http://www.ibatis.com/dtd/sql-map-config-2.dtd">   
-<sqlMapConfig>  
-           
-    <sqlMap resource="sqlMap/User.xml" />  
-      
+<sqlMapConfig>
+    <settings useStatementNamespaces="true"></settings>
+    <sqlMap resource="sqlMap/StateMachineModel.xml" />
+    <sqlMap resource="sqlMap/StateMachineSerialModel.xml" />
 </sqlMapConfig>  

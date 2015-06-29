@@ -111,7 +111,8 @@ public class StateMachineControl {
                 }
             }
             this.updateStateMachineModelStatus(context, descState);
-            stateMachineModelKeeper.saveOrUpdateStateMachineModel(model);
+            model=   stateMachineModelKeeper.saveOrUpdateStateMachineModel(model);
+
 
 
         }

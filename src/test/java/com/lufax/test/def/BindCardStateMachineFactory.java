@@ -14,15 +14,13 @@ import org.springframework.stereotype.Service;
 public class BindCardStateMachineFactory  extends AbstractStateMachineFactory {
     @Override
     public void definition(StateMachineBuilder stateMachineBuilder) {
-        stateMachineBuilder.transition().fromInit(BindCardState.INIT).on(BindCardEvent.AUTHSEND).
+
+
+           stateMachineBuilder.transition().fromInit(BindCardState.INIT).on(BindCardEvent.AUTHSEND).
                 performDecisionAction(BindCardAction.AUTHSEND_ACTION).to(BindCardState.AUTHSEND,BindCardState.FAIL);
-
-
-        stateMachineBuilder.transition().from(BindCardState.AUTHSEND).on(BindCardEvent.CONFIRM).
+          stateMachineBuilder.transition().from(BindCardState.AUTHSEND).on(BindCardEvent.CONFIRM).
                 performDecisionAction(BindCardAction.CONFIRM_ACTION).to(BindCardState.SUCCESS,BindCardState.FAIL);
-
-
-        stateMachineBuilder.transition().from(BindCardState.FAIL).on(BindCardEvent.RE_AUTHSEND).perform
+           stateMachineBuilder.transition().from(BindCardState.FAIL).on(BindCardEvent.RE_AUTHSEND).perform
                 (BindCardAction.RE_AUTHSEND_ACTION).to(BindCardState.AUTHSEND);
     }
 

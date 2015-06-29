@@ -11,33 +11,11 @@
     <context:component-scan base-package="com.lufax"/>
     <context:annotation-config/> 
 
-
-  <!--   <bean id="propertyConfig"
-          class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
-        <property name="location">
-            <value>jdbc.properties</value>
-        </property>
-    </bean> -->
  <bean id="BindCardStateMachine" factory-bean="BindCardStateMachineFactory" factory-method="createStateMachine"/>
 
-<!--     <bean id="dataSource"
-          class="org.springframework.jdbc.datasource.DriverManagerDataSource">
-        <property name="driverClassName">
-            <value>${jdbc.driver}</value>
-        </property>
-        <property name="url">
-            <value>${jdbc.url}</value>
-        </property>
-        <property name="username">
-            <value>${jdbc.username}</value>
-        </property>
-        <property name="password">
-            <value>${jdbc.password}</value>
-        </property>
-    </bean> -->
       <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">  
         <property name="driverClassName" value="com.mysql.jdbc.Driver" />  
-        <property name="url" value="jdbc:mysql://localhost:3306/happy" />  
+        <property name="url" value="jdbc:mysql://localhost:3306/test" />
         <property name="username" value="root" />  
         <property name="password" value="1111" />  
     </bean>  
@@ -45,40 +23,20 @@
     <bean id="sqlMapClient" class="org.springframework.orm.ibatis.SqlMapClientFactoryBean">  
         <property name="configLocation">   
             <value>SqlMapConfig.xml</value>  
-        </property>  
-          
+        </property>
         <property name="dataSource">  
             <ref local="dataSource" />  
         </property>  
     </bean>  
-  
-    <bean id="userDao" class="com.lufax.foudation.statemachine.fsm.impl.UserDaoImpl">  
-        <property name="sqlMapClient">  
-            <ref local="sqlMapClient"/>  
-        </property>     
-    </bean>  
-  
+
     <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">  
         <property name="dataSource">  
             <ref local="dataSource" />  
         </property>  
     </bean>  
-    
-    <!--根据dataSource和configLocation创建一个SqlMapClient-->
-<!--     <bean id="sqlMapClient" class="org.springframework.orm.ibatis.SqlMapClientFactoryBean">
-        <property name="configLocation">
-            <value>sql-map-config.xml</value>
-        </property>
-        <property name="dataSource">
-            <ref bean="dataSource" />
-        </property>
-    </bean>
-
-
 
     <bean id="sqlMapClientTemplate" class="org.springframework.orm.ibatis.SqlMapClientTemplate">
         <property name="sqlMapClient"><ref bean="sqlMapClient"/></property>
-    </bean> -->
-
+    </bean>
 
 </beans>

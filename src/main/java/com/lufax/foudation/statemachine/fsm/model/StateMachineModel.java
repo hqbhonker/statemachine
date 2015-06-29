@@ -1,5 +1,6 @@
 package com.lufax.foudation.statemachine.fsm.model;
 
+import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 
 import java.io.Serializable;
@@ -21,8 +22,8 @@ public class StateMachineModel implements Serializable {
     private boolean isDone;
     private int version;
     private int attempCount;
-    public StateMachineModel (){
-        this.id= UUID.randomUUID().toString();
+    public StateMachineModel () {
+
     }
     public StateMachineModel(String bizType,String bizRefNo){
         this();
@@ -35,7 +36,7 @@ public class StateMachineModel implements Serializable {
     }
 
     public void setId(String id) {
-        id = id;
+     this. id = id;
     }
 
     public String getBizRefNo() {
@@ -78,7 +79,7 @@ public class StateMachineModel implements Serializable {
         this.modifiedBy = modifiedBy;
     }
 
-    public Date getCreatedDate() {
+   public Date getCreatedDate() {
         return createdDate;
     }
 

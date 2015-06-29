@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap
+        PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN"
+        "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="StateMachineSerialModel">
+
+    <select id="select" parameterClass="map" resultClass="com.lufax.foudation.statemachine.fsm.model.StateMachineSerialModel">
+        select
+        ID id ,
+        SM_ID stateMachineModelId,
+        SOURCE_STATE sourceState,
+        DESC_STATE descState,
+        CREATED_BY createdBy,
+        MODIFIED_BY  modifiedBy,
+        CREATED_DATE createdDate,
+        MODIFIED_DATE modifiedDate
+        FROM T_SM_SERIAL_MODEL
+        WHERE ID = #id#
+    </select>
+
+
+
+    <insert id="insert" parameterClass="com.lufax.foudation.statemachine.fsm.model.StateMachineSerialModel">
+        INSERT INTO T_SM_SERIAL_MODEL(
+        ID  ,
+        SM_ID ,
+        SOURCE_STATE ,
+        DESC_STATE ,
+        CREATED_BY ,
+        MODIFIED_BY ,
+        CREATED_DATE ,
+        MODIFIED_DATE
+        )VALUES(
+        #id# ,
+        #stateMachineModelId#,
+        #sourceState#,
+        #descState#,
+        #createdBy#,
+        #modifiedBy#,
+        #createdDate#,
+        #modifiedDate#
+        )
+    </insert>
+
+
+
+    <update id="updateDestState" parameterClass="map">
+        UPDATE T_SM_SERIAL_MODEL SET
+        DESC_STATE = #destState#,
+        MODIFIED_DATE =now()
+        WHERE   ID = #id#
+
+    </update>
+
+</sqlMap>

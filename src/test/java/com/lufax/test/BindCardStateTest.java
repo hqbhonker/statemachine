@@ -5,6 +5,7 @@ import com.lufax.foudation.statemachine.fsm.model.StateMachineModel;
 import com.lufax.foudation.statemachine.fsm.spi.StateMachineModelKeeper;
 import com.lufax.test.def.BindCardEvent;
 import com.lufax.test.def.BindCardState;
+import junit.framework.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,17 +29,13 @@ public class BindCardStateTest {
     private StateMachineModelKeeper stateMachineModelKeeper;
     @Test
     public void testBindCardStateMachine(){
-        bindCardStateMachine.fire(BindCardEvent.AUTHSEND, "test");
-
-
-
-        StateMachineModel model= stateMachineModelKeeper.getStateMachineModelBy("Bind_Card_Process", "test");
-        System.out.println(" current state:  "+model.getCurrentState());
-
-        bindCardStateMachine.fire(BindCardEvent.CONFIRM,"test");
-
-         model= stateMachineModelKeeper.getStateMachineModelBy("Bind_Card_Process", "test");
-         System.out.println(" current state:  "+model.getCurrentState());
+        String key=System.currentTimeMillis()/3600+" ";
+        bindCardStateMachine.fire(BindCardEvent.AUTHSEND,key);
+        StateMachineModel model= stateMachineModelKeeper.getStateMachineModelBy("Bind_Card_Process", key);
+       Assert.assertEquals(model.getCurrentState(),BindCardState.AUTHSEND.getCode());
+        bindCardStateMachine.fire(BindCardEvent.CONFIRM,key);
+         model= stateMachineModelKeeper.getStateMachineModelBy("Bind_Card_Process",key);
+        Assert.assertEquals(model.getCurrentState(), BindCardState.AUTHSEND.getCode());
 
     }
 }
